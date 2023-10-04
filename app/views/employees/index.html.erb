@@ -4,93 +4,37 @@
       <div class="p-1.5 min-w-full inline-block align-middle">
         <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"> 
           <!-- Table -->
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
-                      First Name
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
-                      Last Name
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
-                      Email
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
-                      Department
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
-                      Hire Date
-                    </span>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-
-            <tbody class="divide-y divide-gray-200">
-              <% @employees.each do |employee| %>
-                <tr class="bg-white hover:bg-gray-50">
-                  <td class="h-px w-px whitespace-nowrap">
-                    <div class="flex items-center gap-x-4 p-6">
-                      <div>
-                        <span class="block text-sm font-semibold text-gray-800"><%= employee.first_name %></span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                    <div class="flex items-center gap-x-4 p-6">
-                      <div>
-                        <span class="block text-sm font-semibold text-gray-800"><%= employee.last_name %></span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                    <div class="flex items-center gap-x-4 p-6">
-                      <div>
-                        <span class="block text-sm font-semibold text-gray-800"><%= employee.email%></span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                    <div class="flex items-center gap-x-4 p-6">
-                      <div>
-                        <span class="block text-sm font-semibold text-gray-800"><%= employee.department%></span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                    <div class="flex items-center gap-x-4 p-6">
-                      <div>
-                        <span class="block text-sm font-semibold text-gray-800"><%= employee.hire_date.to_fs(:long)%></span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+          <div class="min-w-full divide-y divide-gray-200">
+            <!-- Header -->
+            <div class="bg-gray-50 grid grid-cols-5">
+              <div class="px-6 py-3 text-left">
+                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">First Name</span>
+              </div>
+              <div class="px-6 py-3 text-left">
+                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Last Name</span>
+              </div>
+              <div class="px-6 py-3 text-left">
+                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Email</span>
+              </div>
+              <div class="px-6 py-3 text-left">
+                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Department</span>
+              </div>
+              <div class="px-6 py-3 text-left">
+                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Hire Date</span>
+              </div>
+            </div>
+            <!-- Header End -->
+            <%= turbo_frame_tag 'employees' do %>
+              <!-- Body -->
+              <div class="divide-y divide-gray-200">
+                <%= render @employees %>
+              </div>
+              <!-- End Body -->
+              <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200">
+                <%== pagy_nav(@pagy, link_extra: 'data-turbo-action="advance"') %>
+              </div>
+            <% end %>
+          </div>
           <!-- End Table -->
         </div>
       </div>

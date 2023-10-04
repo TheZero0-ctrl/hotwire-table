@@ -1,0 +1,18 @@
+<div class="bg-white hover:bg-gray-50 grid grid-cols-5">
+  <div class="px-6 py-3 text-left">
+    <span class="text-sm font-semibold text-gray-800"><%= employee.first_name %></span>
+  </div>
+  <div class="px-6 py-3 text-left">
+    <span class="text-sm font-semibold text-gray-800"><%= employee.last_name %></span>
+  </div>
+  <div class="px-6 py-3 text-left">
+    <span class="text-sm font-semibold text-gray-800"><%= employee.email %></span>
+  </div>
+  <div class="px-6 py-3 text-left">
+    <span class="text-sm font-semibold text-gray-800"><%= employee.department %></span>
+  </div>
+  <div class="px-6 py-3 text-left">
+    <span class="text-sm font-semibold text-gray-800"><%= employee.hire_date.to_fs(:long) %></span>
+  </div>
+</div>
+

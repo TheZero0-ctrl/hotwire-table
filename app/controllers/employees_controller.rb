@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all
+    @pagy, @employees = pagy(Employee.all, items: 10)
   end
 end
