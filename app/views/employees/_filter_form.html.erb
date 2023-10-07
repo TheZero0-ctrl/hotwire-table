@@ -1,0 +1,17 @@
+<%= form_with url: employees_path,
+  method: :get,
+  class: "flex items-center gap-4",
+  data: {
+    controller: "filter-form",
+    action: "input->filter-form#submit",
+    turbo_frame: "employees",
+    turbo_action: "advance"
+  } do %>
+  <div class="form-group">
+    <%= text_field_tag "search", params[:search], placeholder: "Search", class: "rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+  </div>
+
+  <div class="form-group">
+    <%= select_tag "department", options_for_select(Employee.departments, params[:department]), prompt: "Select Department", class: "rounded-md border border-gray-200 outline-none px-3 py-2.5" %>
+  </div>
+<% end %>
