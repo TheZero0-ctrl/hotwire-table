@@ -1,1 +1,8 @@
-<%= render 'employees', employees: @employees %>
+<%= turbo_frame_tag 'employees' do %>
+  <%= render 'employees', employees: @employees %>
+  <% if columns.include?(params[:sort_by]) && params[:direction].present? %>
+    <%= turbo_stream.replace("#{params[:sort_by]}_sort") do %>
+      <%= render 'column', column: params[:sort_by] %>
+    <% end %>
+  <% end %>
+<% end %>

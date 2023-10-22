@@ -8,26 +8,14 @@
           </div>
           <!-- Table -->
           <div class="min-w-full divide-y divide-gray-200">
-            <!-- Header -->
             <div class="bg-gray-50 grid grid-cols-5">
-              <div class="px-6 py-3 text-left">
-                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">First Name</span>
-              </div>
-              <div class="px-6 py-3 text-left">
-                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Last Name</span>
-              </div>
-              <div class="px-6 py-3 text-left">
-                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Email</span>
-              </div>
-              <div class="px-6 py-3 text-left">
-                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Department</span>
-              </div>
-              <div class="px-6 py-3 text-left">
-                <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">Hire Date</span>
-              </div>
+              <% columns.each do |column| %>
+                <%= render "column", column: column %>
+              <% end %>
             </div>
-            <!-- Header End -->
-            <%= render 'employees', employees: @employees %>
+            <%= turbo_frame_tag 'employees' do %>
+              <%= render 'employees', employees: @employees %>
+            <% end %>
           </div>
           <!-- End Table -->
         </div>

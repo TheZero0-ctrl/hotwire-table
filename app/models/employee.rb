@@ -3,8 +3,8 @@ class Employee < ApplicationRecord
 
   enum :department, {
     'Development': 0,
-    'QA': 1,
+    'DevOps': 1,
     'Project Management': 2,
-    'DevOps': 3
+    'QA': 3
   }
 end
