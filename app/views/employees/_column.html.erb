@@ -1,5 +1,5 @@
 <div class="px-6 py-3 text-left" id=<%= "#{column}_sort" %> %>
-  <%= link_to employees_path(sort_by: column, direction: sort_direction(column)),
+  <%= link_to employees_path({ sort_by: column, direction: sort_direction(column) }),
     class: "group inline-flex items-center gap-x-2",
     data: {
       turbo_frame: "employees",

@@ -8,10 +8,10 @@
     turbo_action: "advance"
   } do %>
   <div class="form-group">
-    <%= text_field_tag "search", params[:search], placeholder: "Search", class: "rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+    <%= text_field_tag "search", session.dig('employees_filters', 'search'), placeholder: "Search", class: "rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
   </div>
   <div class="form-group">
-    <%= select_tag "department", options_for_select(Employee.departments, params[:department]), prompt: "Select Department", class: "rounded-md border border-gray-200 outline-none px-3 py-2.5" %>
+    <%= select_tag "department", options_for_select(Employee.departments, session.dig('employees_filters', 'department')), prompt: "Select Department", class: "rounded-md border border-gray-200 outline-none px-3 py-2.5" %>
   </div>
   <div class="from-group">
     <%= label_tag "items_per_page" %>
