@@ -1,5 +1,9 @@
 <!-- Body -->
-<div class="divide-y divide-gray-200">
+<div
+  class="divide-y divide-gray-200"
+  data-controller="browser-url-updater"
+  data-browser-url-updater-params-value="<%= session[:employees_filters].reject { |key| params.key?(key) || key == 'page' }.to_json%>"
+>
   <%= render employees %>
 </div>
 <!-- End Body -->

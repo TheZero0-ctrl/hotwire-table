@@ -9,3 +9,6 @@ application.register("filter-form", FilterFormController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import BrowserUrlUpdaterController from "./browser_url_updater_controller"
+application.register("browser-url-updater", BrowserUrlUpdaterController) 

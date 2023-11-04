@@ -27,7 +27,7 @@ module Employees
     end
 
     def filter_params
-      params.permit(:search, :department, :items_per_page, :sort_by, :direction, :page)
+      params.permit(:search, :department, :items, :sort_by, :direction, :page)
     end
 
     def search_employees(employees)
